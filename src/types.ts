@@ -1,6 +1,6 @@
 export interface IOption {
-    text: string;
-    value: string;
-  }
-  
-  export type IOptions = IOption[];
+  text: string
+  value: string
+}
+
+export type IOptions = IOption[]

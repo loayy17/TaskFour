@@ -2,39 +2,36 @@
   <div>
     <v-choice
       v-model="choiceModel1"
-      name=""
+      name="group1"
       :options="options"
-      :multiple="toggle"
+      :multiple="false"
       :label="toggle ? 'CheckBox Group title' : 'Radio Group'"
-    />
-    <v-choice
-      v-model="choiceModel1"
-      name=""
-      :options="options"
-      :multiple="toggle"
-      :label="toggle ? 'CheckBox Group title' : 'Radio Group'"
+      :is-horizantal="false"
     />
     <v-choice
       v-model="choiceModel2"
-      name="group2"
-      :options="options"
-      :multiple="toggle"
+      name=""
+      :options="Gender"
+      :multiple="false"
       :label="toggle ? 'CheckBox Group title' : 'Radio Group'"
+      :is-horizantal="true"
     />
-  </div>
-
-  <div class="m-auto text-center w-40 my-8 rounded-lg bg-gray-500">
-    App Page <br />
-    {{ choiceModel1.text == undefined ? choiceModel1 : choiceModel1.value }}
-  </div>
-  <div class="m-auto text-center w-40 my-8">
-    <button
-      @click="toggleFunction"
-      type="button"
-      class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-    >
-      {{ toggle ? 'radio' : 'CheckBox' }}
-    </button>
+    <v-choice
+      v-model="choiceModel3"
+      name=""
+      :options="martialStatus"
+      :multiple="true"
+      :label="toggle ? 'CheckBox Group title' : 'Radio Group'"
+      :is-horizantal="true"
+    />
+    <v-choice
+      v-model="choiceModel4"
+      name=""
+      :options="Someone"
+      :multiple="true"
+      :label="toggle ? 'CheckBox Group title' : 'Radio Group'"
+      :is-horizantal="false"
+    />
   </div>
 </template>
 
@@ -47,14 +44,25 @@ const options = [
   { text: 'Option 2', value: 'b' },
   { text: 'Option 3', value: 'c' }
 ]
-
+const Gender = [
+  { text: 'Male', value: 'a' },
+  { text: 'Female', value: 'b' }
+]
+const martialStatus = [
+  { text: 'Single', value: 'a' },
+  { text: 'Married', value: 'b' },
+  { text: 'Other', value: 'c' }
+]
+const Someone = [
+  { text: 'Child', value: 'a' },
+  { text: 'Teenager', value: 'b' },
+  { text: 'Man', value: 'c' }
+]
 
 const choiceModel1 = ref([]) as Ref<string[]>
 const choiceModel2 = ref([]) as Ref<string[]>
-const toggleFunction = () => {
-  toggle.value = !toggle.value
-  choiceModel1.value = []
-}
+const choiceModel3 = ref([]) as Ref<string[]>
+const choiceModel4 = ref([]) as Ref<string[]>
 </script>
 
 <style scoped></style>
